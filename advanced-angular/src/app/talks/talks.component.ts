@@ -2,14 +2,18 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-talks',
+  host: {
+    '[style.display]': '"block"',
+    '[style.padding-left]': '"20px"',
+  },
   templateUrl: './talks.component.html',
   styleUrls: ['./talks.component.css'],
-  styles: [
-      `:host {
-      display: block;
-      padding-left: 20px;
-    }`
-  ]
+  // styles: [
+  //     `:host {
+  //     display: block;
+  //     padding-left: 20px;
+  //   }`
+  // ]
 })
 export class TalksComponent implements OnInit {
 
