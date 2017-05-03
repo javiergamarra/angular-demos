@@ -1,2 +1,2 @@
-# angular_demos
+# angular-demos
 Several angular demos
