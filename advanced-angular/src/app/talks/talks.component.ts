@@ -18,4 +18,8 @@ export class TalksComponent implements OnInit {
     ];
   }
 
+  onClicked($event) {
+    console.log($event);
+  }
+
 }
