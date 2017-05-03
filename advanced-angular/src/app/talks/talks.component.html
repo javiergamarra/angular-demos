@@ -1,3 +1,6 @@
-<p (click)="onClicked($event)" *ngFor="let talk of talks$ | async">
-  {{talk.title}}
-</p>
+<div *ngIf="talks$ | async as talks; else loading">
+  <p (click)="onClicked($event)" *ngFor="let talk of talks">
+    {{talk.title}}
+  </p>
+</div>
+<ng-template #loading>Loading...</ng-template>
