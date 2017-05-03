@@ -1,6 +1,6 @@
-import { Component, OnInit, Renderer2 } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { TalksService } from '../talks.service';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs/Rx';
 
 @Component({
   selector: 'app-talks',
@@ -17,11 +17,21 @@ export class TalksComponent implements OnInit {
 
   talks$: Observable<any>;
 
+  @ViewChild('search')
+  private search: ElementRef;
+
   constructor(private talkService: TalksService, private renderer: Renderer2) {
   }
 
   ngOnInit() {
     this.talks$ = this.talkService.getTalks();
+
+    Observable.fromEvent(this.search.nativeElement, 'keyup')
+      .map((e: any) => e.target.value)
+      .filter(text => text.length > 2)
+      .debounceTime(700)
+      .distinctUntilChanged()
+      .subscribe(x => console.log(x));
   }
 
   onClicked($event, element) {
