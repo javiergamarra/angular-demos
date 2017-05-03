@@ -14,7 +14,9 @@ export class TalksComponent implements OnInit {
 
   ngOnInit() {
     this.talks = [
-      {name: 'Angular'}
+      {name: 'Angular'},
+      {name: 'Rx'},
+      {name: 'Modules'}
     ];
   }
 
