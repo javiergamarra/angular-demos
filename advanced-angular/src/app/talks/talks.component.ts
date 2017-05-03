@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TalksService } from '../talks.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-talks',
@@ -13,17 +15,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TalksComponent implements OnInit {
 
-  talks: Array<any>;
+  talks$: Observable<any>;
 
-  constructor() {
+  constructor(private talkService: TalksService) {
   }
 
   ngOnInit() {
-    this.talks = [
-      {name: 'Angular'},
-      {name: 'Rx'},
-      {name: 'Modules'}
-    ];
+    this.talks$ = this.talkService.getTalks();
   }
 
   onClicked($event) {
