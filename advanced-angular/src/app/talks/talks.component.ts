@@ -25,9 +25,16 @@ export class TalksComponent implements OnInit {
 
   ngOnInit() {
 
-    Observable.from([1, 2, 3]).flatMap(x => Observable.from([x, x * 2])).subscribe(x => console.log(x));
+    const obsA = Observable.interval(1000).map(x => 'a');
+    const obsB = Observable.interval(1000).map(x => 'b');
 
-    // this.talks$ =
+    // obsA.combineLatest(obsB).subscribe(x => console.log(x));
+    // obsA.concat(obsB).subscribe(x => console.log(x));
+    // obsA.merge(obsB).subscribe(x => console.log(x));
+    // obsA.race(obsB).subscribe(x => console.log(x));
+    // obsA.zip(obsB).subscribe(x => console.log(x));
+
+      // this.talks$ =
     //   Observable.merge(Observable.of(''),
     //     Observable.fromEvent(this.search.nativeElement, 'keyup')
     //       .map((e: any) => e.target.value)
