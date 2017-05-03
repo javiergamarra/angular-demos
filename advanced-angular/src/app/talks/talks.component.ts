@@ -25,25 +25,18 @@ export class TalksComponent implements OnInit {
 
   ngOnInit() {
 
-    // this.talks$ = this.doNetworkRequest();
-    const obsA = this.doNetworkRequest();
-    const obsB = this.doNetworkRequest();
-
-    obsA.subscribe(x => console.log(x));
-    obsB.subscribe(x => console.log(x));
-    obsA.connect();
+    this.talks$ = this.doNetworkRequest();
   }
 
   private doNetworkRequest() {
-    return Observable.merge(Observable.of(''),
-      Observable.fromEvent(this.search.nativeElement, 'keyup')
-        .map((e: any) => e.target.value)
-        .filter(text => text.length > 2))
-      .do(x => console.log(x))
+    return Observable.fromEvent(this.search.nativeElement, 'keyup')
+      .map((e: any) => e.target.value)
+      .filter(text => text.length > 2)
       .debounceTime(700)
+      .startWith('')
+      .do(x => console.log(x))
       .distinctUntilChanged()
-      .switchMap(x => this.talkService.getTalks(x))
-      .publish();
+      .switchMap(x => this.talkService.getTalks(x));
   }
 
   onClicked($event, element) {
