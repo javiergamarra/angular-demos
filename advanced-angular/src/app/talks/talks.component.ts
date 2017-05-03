@@ -3,7 +3,13 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-talks',
   templateUrl: './talks.component.html',
-  styleUrls: ['./talks.component.css']
+  styleUrls: ['./talks.component.css'],
+  styles: [
+      `:host {
+      display: block;
+      padding-left: 20px;
+    }`
+  ]
 })
 export class TalksComponent implements OnInit {
 
