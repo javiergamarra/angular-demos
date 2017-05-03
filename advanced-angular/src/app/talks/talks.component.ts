@@ -7,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TalksComponent implements OnInit {
 
+  talks: Array<any>;
+
   constructor() {
   }
 
   ngOnInit() {
+    this.talks = [
+      {name: 'Angular'}
+    ];
   }
 
 }
