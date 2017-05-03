@@ -24,14 +24,15 @@ export class TalksComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.talks$ = this.talkService.getTalks();
-
-    Observable.fromEvent(this.search.nativeElement, 'keyup')
-      .map((e: any) => e.target.value)
-      .filter(text => text.length > 2)
-      .debounceTime(700)
-      .distinctUntilChanged()
-      .subscribe(x => console.log(x));
+    this.talks$ =
+      Observable.merge(Observable.of(''),
+        Observable.fromEvent(this.search.nativeElement, 'keyup')
+          .map((e: any) => e.target.value)
+          .filter(text => text.length > 2))
+        .do(x => console.log(x))
+        .debounceTime(700)
+        .distinctUntilChanged()
+        .switchMap(x => this.talkService.getTalks(x));
   }
 
   onClicked($event, element) {
