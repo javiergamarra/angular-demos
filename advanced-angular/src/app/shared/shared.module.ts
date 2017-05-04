@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TalkDirective } from '../talk/talk.directive';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -8,7 +9,7 @@ import { TalkDirective } from '../talk/talk.directive';
   ],
   declarations: [TalkDirective],
   exports: [TalkDirective,
-    CommonModule]
+    CommonModule, FormsModule]
 })
 export class SharedModule {
 }
