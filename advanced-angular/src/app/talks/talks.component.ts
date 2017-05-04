@@ -1,6 +1,16 @@
-import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ComponentFactoryResolver,
+  ElementRef,
+  OnInit,
+  Renderer2,
+  ViewChild,
+  ViewContainerRef
+} from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 import { TalksService } from '../core/core.module';
+import { CardComponent } from '../shared/card.component';
 
 @Component({
   selector: 'app-talks',
@@ -13,19 +23,25 @@ import { TalksService } from '../core/core.module';
     }`
   ]
 })
-export class TalksComponent implements OnInit {
+export class TalksComponent implements OnInit, AfterViewInit {
 
   talks$: Observable<any>;
 
   @ViewChild('search')
   private search: ElementRef;
 
-  constructor(private talkService: TalksService, private renderer: Renderer2) {
+  @ViewChild('inject', {read: ViewContainerRef})
+  private inject: ViewContainerRef
+
+  constructor(private talkService: TalksService, private renderer: Renderer2, private componentFactory: ComponentFactoryResolver) {
   }
 
   ngOnInit() {
-
     this.talks$ = this.doNetworkRequest();
+  }
+
+  ngAfterViewInit(): void {
+    this.inject.createComponent(this.componentFactory.resolveComponentFactory(CardComponent));
   }
 
   private doNetworkRequest() {

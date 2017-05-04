@@ -2,12 +2,11 @@
 
 <div *ngIf="talks$ | async as talks; else loading">
   <p (click)="onClicked($event, row)" *ngFor="let talk of talks" #row>
-    <app-card>
-      <div title>{{talk.title}}</div>
-      <div content>content</div>
-    </app-card>
+    {{talk.title}}
   </p>
   <span *appTalk="let talk of talks">{{talk}}</span>
 </div>
 
 <ng-template #loading>Loading...</ng-template>
+
+<ng-template #inject></ng-template>
