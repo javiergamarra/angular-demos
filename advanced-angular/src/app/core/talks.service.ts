@@ -1,12 +1,13 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Optional } from '@angular/core';
 import { Http, URLSearchParams } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/delay';
+import { TalksConfig } from './talks-config';
 
 @Injectable()
 export class TalksService {
 
-  constructor(private http: Http) {
+  constructor(private http: Http, @Optional() private config: TalksConfig) {
   }
 
   getTalks(title) {
@@ -17,7 +18,7 @@ export class TalksService {
     }
 
     return this.http
-      .get('http://data.agenda.wedeploy.io/talks', {params})
+      .get(this.config.server, {params})
       .map(res => res.json());
   }
 

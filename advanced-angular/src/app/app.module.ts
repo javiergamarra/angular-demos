@@ -14,7 +14,7 @@ import { CoreModule } from './core/core.module';
   imports: [
     BrowserModule,
     HttpModule,
-    CoreModule,
+    CoreModule.forRoot({server: 'http://data.agenda.wedeploy.io/talks'}),
     TalksModule,
     SharedModule
   ],
