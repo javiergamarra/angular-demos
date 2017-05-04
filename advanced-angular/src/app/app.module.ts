@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { TalksModule } from './talks/talks.module';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
+import { AddTalkModule } from './add-talk/add-talk.module';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { CoreModule } from './core/core.module';
     HttpModule,
     CoreModule.forRoot({server: 'http://data.agenda.wedeploy.io/talks'}),
     TalksModule,
+    AddTalkModule,
     SharedModule
   ],
   bootstrap: [AppComponent]

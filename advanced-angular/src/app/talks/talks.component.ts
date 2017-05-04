@@ -31,7 +31,7 @@ export class TalksComponent implements OnInit, AfterViewInit {
   private search: ElementRef;
 
   @ViewChild('inject', {read: ViewContainerRef})
-  private inject: ViewContainerRef
+  private inject: ViewContainerRef;
 
   constructor(private talkService: TalksService, private renderer: Renderer2, private componentFactory: ComponentFactoryResolver) {
   }
