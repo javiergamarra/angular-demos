@@ -1,31 +1,13 @@
-import {
-  AfterViewInit,
-  Directive,
-  HostBinding,
-  HostListener,
-  Input,
-  TemplateRef,
-  ViewContainerRef
-} from '@angular/core';
+import { Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core';
 
 @Directive({
   selector: '[appTalk]'
 })
-export class TalkDirective implements AfterViewInit {
+export class TalkDirective {
 
-  @Input() appTalk;
-
-  ngAfterViewInit(): void {
-    this.viewContainerRef.createEmbeddedView(this.templateRef);
-    this.viewContainerRef.createEmbeddedView(this.templateRef);
-  }
-
-  @HostBinding() get innerText() {
-    return this.appTalk;
-  }
-
-  @HostListener('click') onClick() {
-    console.log('clicked!');
+  @Input() set appTalk(value) {
+    this.viewContainerRef.createEmbeddedView(this.templateRef, {$implicit: '1'});
+    this.viewContainerRef.createEmbeddedView(this.templateRef, {$implicit: '2'});
   }
 
   constructor(private templateRef: TemplateRef<any>, private viewContainerRef: ViewContainerRef) {
