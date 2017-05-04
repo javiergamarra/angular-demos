@@ -3,8 +3,9 @@
 <div *ngIf="talks$ | async as talks; else loading">
   <p (click)="onClicked($event, row)" *ngFor="let talk of talks" #row>
     {{talk.title}}
-
-    <span appTalk="Talk"></span>
   </p>
 </div>
+
+<span *appTalk>ejemplo</span>
+
 <ng-template #loading>Loading...</ng-template>
