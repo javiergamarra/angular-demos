@@ -14,5 +14,4 @@ export class TalkDirective {
   constructor(private templateRef: TemplateRef<any>, private viewContainerRef: ViewContainerRef) {
   }
 
-
 }

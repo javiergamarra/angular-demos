@@ -2,7 +2,9 @@
 
 <div *ngIf="talks$ | async as talks; else loading">
   <p (click)="onClicked($event, row)" *ngFor="let talk of talks" #row>
-    {{talk.title}}
+    <app-card>
+      {{talk.title}}
+    </app-card>
   </p>
   <span *appTalk="let talk of talks">{{talk}}</span>
 </div>

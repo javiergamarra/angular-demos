@@ -2,13 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TalkDirective } from './talk.directive';
 import { FormsModule } from '@angular/forms';
+import { CardComponent } from './card.component';
 
 @NgModule({
   imports: [
     CommonModule
   ],
-  declarations: [TalkDirective],
-  exports: [TalkDirective,
+  declarations: [TalkDirective, CardComponent],
+  exports: [TalkDirective, CardComponent,
     CommonModule, FormsModule]
 })
 export class SharedModule {
