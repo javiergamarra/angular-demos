@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { TalksModule } from './talks/talks.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { TalksModule } from './talks/talks.module';
     BrowserModule,
     FormsModule,
     HttpModule,
-    TalksModule
+    TalksModule,
+    SharedModule
   ],
   bootstrap: [AppComponent]
 })

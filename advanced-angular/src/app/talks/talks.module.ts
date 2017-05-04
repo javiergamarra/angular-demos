@@ -1,14 +1,13 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { TalksComponent } from './talks.component';
 import { TalksService } from '../talks.service';
-import { TalkDirective } from '../talk/talk.directive';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
-    CommonModule
+    SharedModule
   ],
-  declarations: [TalksComponent, TalkDirective],
+  declarations: [TalksComponent],
   providers: [TalksService],
   exports: [TalksComponent]
 })
