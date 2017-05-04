@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
-import { TalksService } from '../talks.service';
+import { TalksService } from '../core/talks.service';
 import { Observable } from 'rxjs/Rx';
 
 @Component({
