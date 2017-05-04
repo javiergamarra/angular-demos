@@ -8,16 +8,19 @@ import { TalksConfig } from './talks-config';
     CommonModule
   ],
   declarations: [],
-  providers: [TalksService]
 })
 export class CoreModule {
 
   static forRoot(config: TalksConfig): ModuleWithProviders {
     return {
       ngModule: CoreModule,
-      providers: [
+      providers: [TalksService,
         {provide: TalksConfig, useValue: config}
       ]
     };
   }
+}
+
+export {
+  TalksService
 }

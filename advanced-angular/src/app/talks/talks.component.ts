@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
-import { TalksService } from '../core/talks.service';
 import { Observable } from 'rxjs/Rx';
+import { TalksService } from '../core/core.module';
 
 @Component({
   selector: 'app-talks',
