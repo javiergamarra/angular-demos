@@ -1,11 +1,15 @@
-import { Directive, HostBinding } from '@angular/core';
+import { Directive, HostBinding, Input } from '@angular/core';
 
 @Directive({
   selector: '[appTalk]'
 })
 export class TalkDirective {
 
-  @HostBinding() innerText = 'inner text';
+  @Input() appTalk;
+
+  @HostBinding() get innerText() {
+    return this.appTalk;
+  }
 
   constructor() {
   }

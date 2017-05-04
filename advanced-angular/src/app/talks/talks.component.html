@@ -4,7 +4,7 @@
   <p (click)="onClicked($event, row)" *ngFor="let talk of talks" #row>
     {{talk.title}}
 
-    <span appTalk>hola</span>
+    <span appTalk="Talk"></span>
   </p>
 </div>
 <ng-template #loading>Loading...</ng-template>
