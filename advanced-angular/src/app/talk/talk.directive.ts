@@ -5,9 +5,10 @@ import { Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core';
 })
 export class TalkDirective {
 
-  @Input() set appTalk(value) {
-    this.viewContainerRef.createEmbeddedView(this.templateRef, {$implicit: '1'});
-    this.viewContainerRef.createEmbeddedView(this.templateRef, {$implicit: '2'});
+  @Input() set appTalkOf(value) {
+    console.log(value);
+    this.viewContainerRef.createEmbeddedView(this.templateRef, {$implicit: value[0].title});
+    this.viewContainerRef.createEmbeddedView(this.templateRef, {$implicit: value[1].title});
   }
 
   constructor(private templateRef: TemplateRef<any>, private viewContainerRef: ViewContainerRef) {
