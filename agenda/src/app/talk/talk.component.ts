@@ -3,7 +3,7 @@ import { TalkType } from '../talks/talks.component';
 
 @Component({
   selector: 'app-talk',
-  template: `{{talk.time}} <span [style.color]="color(talk.type)" *ngIf="talk.time">|</span> {{talk.title}} <span
+  template: `{{talk.time | date}} <span [style.color]="color(talk.type)" *ngIf="talk.time">|</span> {{talk.title}} <span
     (click)="favorite()">♥</span>`,
   styleUrls: ['./talk.component.css']
 })

@@ -5,9 +5,9 @@ export enum TalkType {
 }
 
 const TALKS: any[] = [
-  {title: 'Angular 5 is released!', time: '09:00', type: TalkType.TALK},
-  {title: 'RxJS is pretty cool :D', time: '10:00', type: TalkType.TALK},
-  {title: 'Learn ionic3', time: '11:00', type: TalkType.WORKSHOP},
+  {title: 'Angular 5 is released!', time: new Date(), type: TalkType.TALK},
+  {title: 'RxJS is pretty cool :D', time: new Date(), type: TalkType.TALK},
+  {title: 'Learn ionic3', time: new Date(), type: TalkType.WORKSHOP},
   {title: ' Doubts and questions '},
 ];
 
