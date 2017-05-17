@@ -14,4 +14,8 @@ export class TalksService {
   constructor() {
   }
 
+  getAllTalks() {
+    return TALKS;
+  }
+
 }

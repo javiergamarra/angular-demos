@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TalksService } from '../talks.service';
 
 
 @Component({
@@ -10,12 +11,12 @@ export class TalksComponent implements OnInit {
 
   talks: Array<any>;
 
-  constructor() {
+  constructor(private talksService: TalksService) {
 
   }
 
   ngOnInit() {
-    // this.talks = TALKS;
+    this.talks = this.talksService.getAllTalks();
   }
 
   onClick(talk) {
@@ -23,7 +24,7 @@ export class TalksComponent implements OnInit {
   }
 
   onKeyUp(value) {
-    // this.talks = TALKS.filter(x => x.title.toLowerCase().indexOf(value.toLowerCase()) !== -1);
+    this.talks = this.talksService.getAllTalks().filter(x => x.title.toLowerCase().indexOf(value.toLowerCase()) !== -1);
   }
 }
 
