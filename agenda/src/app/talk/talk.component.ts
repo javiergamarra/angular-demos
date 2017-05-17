@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { TalkType } from '../talks/talks.component';
+import { TalkType } from './talk-type';
 
 @Component({
   selector: 'app-talk',
