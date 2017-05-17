@@ -1,5 +1,5 @@
 <label for="search">Search talks</label>
-<input type="text" id="search" (keyup)="onKeyUp($event.target.value)">
+<input type="text" id="search" (keyup)="onKeyUp(search.value)" #search>
 
 <p (click)="onClick(talk)">
   {{talk.time}} <span [style.color]="color(talk.type)">|</span> {{talk.title}}
