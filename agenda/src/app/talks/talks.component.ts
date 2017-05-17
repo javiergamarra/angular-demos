@@ -13,6 +13,7 @@ export class TalksComponent implements OnInit {
   }
 
   ngOnInit() {
+    setInterval(() => this.talk = Math.random().toString(), 1000);
   }
 
 }
