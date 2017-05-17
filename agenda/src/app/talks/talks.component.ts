@@ -7,7 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TalksComponent implements OnInit {
 
-  constructor() { }
+  talk = 'Angular 5 is released!';
+
+  constructor() {
+  }
 
   ngOnInit() {
   }
