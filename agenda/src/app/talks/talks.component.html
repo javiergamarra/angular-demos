@@ -1,5 +1,5 @@
 <label for="search">Search talks</label>
-<input type="text" id="search" (keyup)="onKeyUp(search.value)" #search>
+<input type="text" id="search" #search>
 
 <p (click)="onClick(talk)" *ngFor="let talk of talks;trackBy:myTrackBy;let i = index;let odd = odd; let first = first"
    (event)="onclick($event)">

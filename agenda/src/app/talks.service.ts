@@ -1,21 +1,23 @@
 import { Injectable } from '@angular/core';
-import { TalkType } from './talk/talk-type';
-
-const TALKS: any[] = [
-  {title: 'Angular 5 is released!', time: new Date(), type: TalkType.TALK},
-  {title: 'RxJS is pretty cool :D', time: new Date(), type: TalkType.TALK},
-  {title: 'Learn ionic3', time: new Date(), type: TalkType.WORKSHOP},
-  {title: ' Doubts and questions '},
-];
+import { Http, URLSearchParams } from '@angular/http';
 
 @Injectable()
 export class TalksService {
 
-  constructor() {
+  constructor(private http: Http) {
   }
 
-  getAllTalks() {
-    return TALKS;
+  getAllTalks(filter?) {
+
+    const params = new URLSearchParams();
+    params.set('search',
+      JSON.stringify({
+        '*': {'operator': 'fuzzy', 'value': {'query': filter}}
+      }));
+
+    return this.http.get('http://data.agenda.wedeploy.io/talks', {params: params})
+      .map(res => res.json())
+      .map(res => res.documents);
   }
 
 }
