@@ -2,5 +2,6 @@
 <input type="text" id="search" (keyup)="onKeyUp(search.value)" #search>
 
 <p (click)="onClick(talk)" *ngFor="let talk of talks;trackBy:myTrackBy;let i = index;let odd = odd; let first = first">
-  {{talk.time}} <span [style.color]="color(talk.type)">|</span> {{talk.title}}
+
+  {{talk.time}} <span [style.color]="color(talk.type)" *ngIf="talk.time">|</span> {{talk.title}}
 </p>
