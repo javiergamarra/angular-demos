@@ -1,5 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 
+enum TalkType {
+  TALK, WORKSHOP
+}
+
+const TALKS: any[] = [{
+  title: 'Angular 5 is released!',
+  time: '09:00',
+  type: TalkType.TALK,
+}];
+
 @Component({
   selector: 'app-talks',
   templateUrl: './talks.component.html',
@@ -9,15 +19,12 @@ export class TalksComponent implements OnInit {
 
   talk;
 
+
   constructor() {
   }
 
   ngOnInit() {
-    this.talk = {
-      title: 'Angular 5 is released!',
-      time: '09:00',
-      type: TalkType.TALK,
-    };
+    this.talk = TALKS[0];
   }
 
   color(type) {
@@ -27,8 +34,10 @@ export class TalksComponent implements OnInit {
   onClick() {
     console.log('click!');
   }
+
+  onKeyUp(value) {
+    this.talk = TALKS.filter(x => x.title.toLowerCase().indexOf(value.toLowerCase()) !== -1)[0] || {};
+  }
 }
 
-enum TalkType {
-  TALK, WORKSHOP
-}
+
