@@ -14,7 +14,11 @@ export class TalksComponent implements OnInit {
   talks: Array<any>;
 
   constructor(private talksService: TalksService, private http: Http) {
-    this.http.get('http://data.agenda.wedeploy.io/talks')
+    this.getAllTalks();
+  }
+
+  getAllTalks(serverUrl = 'http://data.agenda.wedeploy.io/talks') {
+    this.http.get(serverUrl)
       .map(res => res.json())
       .subscribe(x => this.talks = x, err => console.log(err));
   }
