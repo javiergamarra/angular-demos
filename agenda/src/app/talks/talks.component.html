@@ -1,6 +1,7 @@
 <label for="search">Search talks</label>
 <input type="text" id="search" (keyup)="onKeyUp(search.value)" #search>
 
-<p (click)="onClick(talk)" *ngFor="let talk of talks;trackBy:myTrackBy;let i = index;let odd = odd; let first = first">
+<p (click)="onClick(talk)" *ngFor="let talk of talks;trackBy:myTrackBy;let i = index;let odd = odd; let first = first"
+   (event)="onclick(talk)">
   <app-talk [talk]="talk"></app-talk>
 </p>

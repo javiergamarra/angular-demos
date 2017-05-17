@@ -28,8 +28,8 @@ export class TalksComponent implements OnInit {
     this.talks = TALKS;
   }
 
-  onClick() {
-    console.log('click!');
+  onClick(talk) {
+    console.log(talk);
   }
 
   onKeyUp(value) {
