@@ -22,4 +22,5 @@ import { TalksService } from './talks.service';
   providers: [TalksService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
