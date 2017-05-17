@@ -6,19 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title: string;
 
-  private talk: Talk;
+  title = 'Hi!';
 
-  constructor(public name = 'Rx', public type = TalkCategory.Talk) {
-    this.talk = {name, type};
+  constructor() {
   }
 
 }
-
-interface Talk {
-  name: String;
-  type: TalkCategory;
-}
-
-enum TalkCategory { Workshop, Talk }
