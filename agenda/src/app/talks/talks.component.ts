@@ -7,13 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TalksComponent implements OnInit {
 
-  talk = 'Angular 5 is released!';
+  talk = {name: 'Angular 5 is released!'};
+
+  valid = true;
+  isSelected = true;
+  isSpecial = true;
 
   constructor() {
   }
 
   ngOnInit() {
-    setInterval(() => this.talk = Math.random().toString(), 1000);
   }
 
 }

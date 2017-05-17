@@ -1,2 +1,22 @@
+<style>
+
+  .selected, .special {
+    background-color: red;
+  }
+
+</style>
+
 <p [textContent]="talk">
 </p>
+
+<input type="text" disabled="{{valid}}">
+
+<p [textContent]="talk.name"></p>
+<p>{{talk.name}}</p>
+
+<!--<app [talk]="talk"></app>-->
+
+<div [ngClass]="{selected: isSelected}">_</div>
+<button [style.color]="isSpecial ? 'red' : 'green'">_</button>
+<div [class.special]="isSpecial">_</div>
+
