@@ -7,11 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TalksComponent implements OnInit {
 
-  talk = {name: 'Angular 5 is released!'};
-
-  valid = true;
-  isSelected = true;
-  isSpecial = true;
+  talk = {
+    title: 'Angular 5 is released!',
+    time: '09:00',
+    type: TalkType.TALK,
+  };
 
   constructor() {
   }
@@ -19,4 +19,11 @@ export class TalksComponent implements OnInit {
   ngOnInit() {
   }
 
+  color(type) {
+    return type === TalkType.TALK ? 'red' : 'yellow';
+  }
+}
+
+enum TalkType {
+  TALK, WORKSHOP
 }
