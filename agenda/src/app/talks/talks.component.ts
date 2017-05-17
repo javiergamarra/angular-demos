@@ -7,16 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TalksComponent implements OnInit {
 
-  talk = {
-    title: 'Angular 5 is released!',
-    time: '09:00',
-    type: TalkType.TALK,
-  };
+  talk;
 
   constructor() {
   }
 
   ngOnInit() {
+    setTimeout(() => {
+        this.talk = {
+          title: 'Angular 5 is released!',
+          time: '09:00',
+          type: TalkType.TALK,
+        };
+      }, 1000
+    );
   }
 
   color(type) {
