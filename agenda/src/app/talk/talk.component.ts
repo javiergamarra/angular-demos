@@ -1,8 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { TalkType } from '../talks/talks.component';
 
 @Component({
   selector: 'app-talk',
-  template: `{{talk}}`,
+  template: `{{talk.time}} <span [style.color]="color(talk.type)" *ngIf="talk.time">|</span> {{talk.title}}`,
   styleUrls: ['./talk.component.css']
 })
 export class TalkComponent implements OnInit {
@@ -13,6 +14,10 @@ export class TalkComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  color() {
+    return this.talk.type === TalkType.TALK ? 'red' : 'yellow';
   }
 
 }

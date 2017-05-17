@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-enum TalkType {
+export enum TalkType {
   TALK, WORKSHOP
 }
 
@@ -28,16 +28,12 @@ export class TalksComponent implements OnInit {
     this.talks = TALKS;
   }
 
-  color(type) {
-    return type === TalkType.TALK ? 'red' : 'yellow';
-  }
-
   onClick() {
     console.log('click!');
   }
 
   onKeyUp(value) {
-    this.talks = TALKS.filter(x => x.title.toLowerCase().indexOf(value.toLowerCase()) !== -1)
+    this.talks = TALKS.filter(x => x.title.toLowerCase().indexOf(value.toLowerCase()) !== -1);
   }
 }
 
