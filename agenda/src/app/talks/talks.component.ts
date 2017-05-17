@@ -20,8 +20,8 @@ export class TalksComponent implements OnInit {
 
   talks: Array<any>;
 
-
   constructor() {
+
   }
 
   ngOnInit() {

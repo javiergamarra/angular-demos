@@ -3,5 +3,8 @@
 
 <p (click)="onClick(talk)" *ngFor="let talk of talks;trackBy:myTrackBy;let i = index;let odd = odd; let first = first">
 
+
+  <app-talk [talk]="talk"></app-talk>
+
   {{talk.time}} <span [style.color]="color(talk.type)" *ngIf="talk.time">|</span> {{talk.title}}
 </p>
