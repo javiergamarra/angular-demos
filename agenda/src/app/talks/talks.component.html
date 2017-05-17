@@ -1,6 +1,6 @@
 <label for="search">Search talks</label>
 <input type="text" id="search" (keyup)="onKeyUp(search.value)" #search>
 
-<p (click)="onClick(talk)">
+<p (click)="onClick(talk)" *ngFor="let talk of talks">
   {{talk.time}} <span [style.color]="color(talk.type)">|</span> {{talk.title}}
 </p>

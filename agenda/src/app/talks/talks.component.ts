@@ -4,11 +4,11 @@ enum TalkType {
   TALK, WORKSHOP
 }
 
-const TALKS: any[] = [{
-  title: 'Angular 5 is released!',
-  time: '09:00',
-  type: TalkType.TALK,
-}];
+const TALKS: any[] = [
+  {title: 'Angular 5 is released!', time: '09:00', type: TalkType.TALK},
+  {title: 'RxJS is pretty cool :D', time: '10:00', type: TalkType.TALK},
+  {title: 'Learn ionic3', time: '11:00', type: TalkType.WORKSHOP},
+];
 
 @Component({
   selector: 'app-talks',
@@ -17,14 +17,14 @@ const TALKS: any[] = [{
 })
 export class TalksComponent implements OnInit {
 
-  talk;
+  talks: Array<any>;
 
 
   constructor() {
   }
 
   ngOnInit() {
-    this.talk = TALKS[0];
+    this.talks = TALKS;
   }
 
   color(type) {
@@ -36,7 +36,7 @@ export class TalksComponent implements OnInit {
   }
 
   onKeyUp(value) {
-    this.talk = TALKS.filter(x => x.title.toLowerCase().indexOf(value.toLowerCase()) !== -1)[0] || {};
+    this.talks = TALKS.filter(x => x.title.toLowerCase().indexOf(value.toLowerCase()) !== -1)
   }
 }
 
