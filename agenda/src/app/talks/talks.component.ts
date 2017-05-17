@@ -13,18 +13,19 @@ export class TalksComponent implements OnInit {
   }
 
   ngOnInit() {
-    setTimeout(() => {
-        this.talk = {
-          title: 'Angular 5 is released!',
-          time: '09:00',
-          type: TalkType.TALK,
-        };
-      }, 1000
-    );
+    this.talk = {
+      title: 'Angular 5 is released!',
+      time: '09:00',
+      type: TalkType.TALK,
+    };
   }
 
   color(type) {
     return type === TalkType.TALK ? 'red' : 'yellow';
+  }
+
+  onClick() {
+    console.log('click!');
   }
 }
 
