@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { TalksService } from '../talks.service';
 
 @Component({
   selector: 'app-add-talk',
@@ -29,7 +30,7 @@ export class AddTalkComponent implements OnInit {
   form;
   nameControl;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private talkService: TalksService) {
 
     this.nameControl = new FormControl('', [Validators.required, this.myValidator]);
 
@@ -37,16 +38,13 @@ export class AddTalkComponent implements OnInit {
       title: this.nameControl,
       date: ''
     });
-
-
-    this.nameControl.valueChanges.subscribe(x => console.log(x));
   }
 
   ngOnInit() {
   }
 
   onSubmit() {
-    console.log(this.form);
+    this.talkService.saveTalk(this.form.value).subscribe(x => console.log(x));
   }
 
   myValidator(ngControl: FormControl) {

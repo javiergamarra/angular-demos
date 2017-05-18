@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Http, URLSearchParams } from '@angular/http';
 
+const API_URL = 'http://data.agenda.wedeploy.io/talks';
+
 @Injectable()
 export class TalksService {
 
@@ -18,6 +20,12 @@ export class TalksService {
     return this.http.get('http://data.agenda.wedeploy.io/talks', {params: params})
       .map(res => res.json())
       .map(res => res.documents);
+  }
+
+  saveTalk(talk) {
+    console.log(talk);
+    return this.http.post(`${API_URL}/`, talk)
+      .map(res => res.json());
   }
 
 }
