@@ -9,6 +9,8 @@
 
   <a routerLink="" routerLinkActive="active">Talks</a>
   <a routerLink="talk/1" routerLinkActive="active">Talk 1</a>
+  <a [routerLink]="['talk', 2]" routerLinkActive="active">Talk 2</a>
+  <a (click)="route(3)">Talk 3</a>
   <a routerLink="add" routerLinkActive="active">Add</a>
 
   <router-outlet></router-outlet>
