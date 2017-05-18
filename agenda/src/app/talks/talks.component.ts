@@ -8,6 +8,7 @@ import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/operator/startWith';
 
 @Component({
   selector: 'app-talks',
@@ -16,22 +17,20 @@ import 'rxjs/add/operator/switchMap';
 })
 export class TalksComponent implements OnInit {
 
-  talks: Array<any>;
+  talks$;
 
   @ViewChild('search') search: ElementRef;
 
   constructor(private talksService: TalksService, private http: Http) {
-    this.talksService.getAllTalks().subscribe(x => this.talks = x);
   }
 
   ngOnInit() {
-    Observable.fromEvent(this.search.nativeElement, 'keyup')
+    this.talks$ = Observable.fromEvent(this.search.nativeElement, 'keyup')
       .map((e: any) => e.target.value)
       .filter(text => text.length > 2)
       .debounceTime(700)
       .distinctUntilChanged()
-      .switchMap(x => this.talksService.getAllTalks(x))
-      .subscribe(x => this.talks = x);
+      .switchMap(x => this.talksService.getAllTalks(x));
   }
 
   onClick(talk) {
