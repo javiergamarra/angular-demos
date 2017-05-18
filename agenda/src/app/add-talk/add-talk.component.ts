@@ -37,6 +37,9 @@ export class AddTalkComponent implements OnInit {
       title: this.nameControl,
       date: ''
     });
+
+
+    this.nameControl.valueChanges.subscribe(x => console.log(x));
   }
 
   ngOnInit() {
