@@ -1,11 +1,10 @@
 <label for="search">Search talks</label>
-<input type="text" id="search" #search>
+<input type="text" id="search" #search (click)="onClick($event)">
 
 
 <div *ngIf="talks$ | async as talks; else loading"></div>
 <p (click)="onClick(talk)"
-   *ngFor="let talk of talks;trackBy:myTrackBy;let i = index;let odd = odd; let first = first"
-   (event)="onclick($event)">
+   *ngFor="let talk of talks;trackBy:myTrackBy;let i = index;let odd = odd; let first = first">
   <app-talk [talk]="talk"></app-talk>
 </p>
 

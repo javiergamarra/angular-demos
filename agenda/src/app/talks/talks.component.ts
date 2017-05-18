@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import 'rxjs/add/operator/map';
 import { TalksService } from '../talks.service';
 import { Observable } from 'rxjs/Observable';
@@ -23,7 +23,7 @@ export class TalksComponent implements OnInit {
 
   @ViewChild('search') search: ElementRef;
 
-  constructor(private talksService: TalksService) {
+  constructor(private talksService: TalksService, private renderer: Renderer2) {
 
   }
 
@@ -40,6 +40,7 @@ export class TalksComponent implements OnInit {
 
   onClick(talk) {
     console.log(talk);
+    this.renderer.setStyle(this.search.nativeElement, 'background-color', 'lightgray');
   }
 }
 
