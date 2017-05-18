@@ -6,7 +6,7 @@ import { NgModule } from '@angular/core';
 
 const appRoutes: Routes = [
   {path: '', component: TalksComponent},
-  // {path: 'talk', component: TalkComponent}
+  {path: 'talk/:id', component: TalkComponent}
 ];
 
 @NgModule({
