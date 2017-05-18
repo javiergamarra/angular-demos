@@ -8,7 +8,10 @@ import { FormBuilder, FormControl, Validators } from '@angular/forms';
 
       <input type="text" name="title" required [formControl]="nameControl" minlength="10">
 
+      <div *ngIf="!nameControl.valid && nameControl.touched">Name is invalid</div>
+
       <input type="text" name="date" required [formControl]="form.controls.date">
+
 
       <button [disabled]="!form.valid">Add talk</button>
 
