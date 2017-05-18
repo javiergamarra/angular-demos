@@ -1,0 +1,13 @@
+.field {
+  padding: 20px;
+}
+
+.field label {
+  display: inline-block;
+  width: 100px;
+}
+
+.submit {
+  margin-left: 20px;
+  padding: 10px;
+}

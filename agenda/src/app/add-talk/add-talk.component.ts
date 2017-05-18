@@ -6,18 +6,18 @@ import { FormBuilder, FormControl, Validators } from '@angular/forms';
   template: `
     <form (ngSubmit)="onSubmit()" [formGroup]="form">
 
-      <input type="text" name="title" required [formControl]="nameControl" minlength="10">
-
-      <div *ngIf="!nameControl.valid && nameControl.touched">Name is invalid
-
-
-        {{nameControl.errors | json}}
+      <div class="field">
+        <label for="title">Name</label>
+        <input type="text" name="title" required [formControl]="nameControl" minlength="8">
+        <span *ngIf="!nameControl.valid && nameControl.touched">Name is invalid</span>
       </div>
 
-      <input type="text" name="date" required [formControl]="form.controls.date">
+      <div class="field">
+        <label for="date">Date</label>
+        <input type="text" name="date" required [formControl]="form.controls.date">
+      </div>
 
-
-      <button [disabled]="!form.valid">Add talk</button>
+      <button [disabled]="!form.valid" class="submit">Add talk</button>
 
     </form>
 
