@@ -1,7 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import 'rxjs/add/operator/map';
 import { TalksService } from '../talks.service';
-import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/fromEvent';
 import 'rxjs/add/operator/filter';
@@ -21,7 +20,7 @@ export class TalksComponent implements OnInit {
 
   @ViewChild('search') search: ElementRef;
 
-  constructor(private talksService: TalksService, private http: Http) {
+  constructor(private talksService: TalksService) {
   }
 
   ngOnInit() {

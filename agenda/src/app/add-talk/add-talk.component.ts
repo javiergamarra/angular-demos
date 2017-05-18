@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-add-talk',
   template: `
-    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <form (ngSubmit)="onSubmit()" [formGroup]="form">
 
-      <input type="text" name="title" ngModel required>
+      <input type="text" name="title" required [formControl]="form.controls.title">
 
-      <input type="text" name="date" [(ngModel)]="date" required>
+      <input type="text" name="date" required [formControl]="form.controls.date">
 
-      <button [disabled]="!f.valid">Add talk</button>
+      <button [disabled]="!form.valid">Add talk</button>
 
     </form>
 
@@ -18,17 +19,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddTalkComponent implements OnInit {
 
-  date;
+  form;
 
-  constructor() {
+  constructor(private fb: FormBuilder) {
+    this.form = fb.group({
+      title: 'title',
+      date: ''
+    });
   }
 
   ngOnInit() {
   }
 
-  onSubmit(value) {
-    console.log(value);
-    console.log(this.date);
+  onSubmit() {
+    console.log(this.form);
   }
 
 }
