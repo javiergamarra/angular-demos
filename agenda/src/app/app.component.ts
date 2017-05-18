@@ -12,7 +12,7 @@ export class AppComponent {
   }
 
   route(id) {
-    this.router.navigate(['talk', id])
+    this.router.navigate(['talk', id]);
     console.log(id);
   }
 

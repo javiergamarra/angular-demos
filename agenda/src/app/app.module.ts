@@ -16,6 +16,7 @@ const routes: Routes = [
   {path: '', component: TalksComponent},
   {path: 'talk/:id', component: TalkComponent},
   {path: 'add', component: AddTalkComponent},
+  {path: 'add', loadChildren: 'app/add-talk/add-talk.module#AddTalkModule', canActivate: [CanActivateGuard]},
 ];
 
 @NgModule({
