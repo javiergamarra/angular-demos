@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 
       <input type="text" name="title" ngModel>
 
-      <button>Add talk</button>
+      <input type="text" name="date" [(ngModel)]="date" required>
 
     </form>
 
@@ -15,6 +15,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-talk.component.css']
 })
 export class AddTalkComponent implements OnInit {
+
+  date;
 
   constructor() {
   }
