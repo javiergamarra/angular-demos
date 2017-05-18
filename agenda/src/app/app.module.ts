@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { TalksService } from './talks.service';
 import { TalksModule } from './talks/talks.module';
 import { AddTalkModule } from './add-talk/add-talk.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { AddTalkModule } from './add-talk/add-talk.module';
     BrowserModule,
     HttpModule,
     TalksModule,
-    AddTalkModule
+    AddTalkModule,
+    SharedModule
   ],
   providers: [TalksService],
   bootstrap: [AppComponent]
