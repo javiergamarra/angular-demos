@@ -3,19 +3,14 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { TalksModule } from './talks/talks.module';
-import { AddTalkModule } from './add-talk/add-talk.module';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
 import { RouterModule, Routes } from '@angular/router';
-import { TalksComponent } from './talks/talks.component';
-import { AddTalkComponent } from './add-talk/add-talk.component';
-import { TalkComponent } from './talk/talk.component';
+import { CanActivateGuard } from './shared/CanActivateGuard';
 
 const routes: Routes = [
-  {path: '', component: TalksComponent},
-  {path: 'talk/:id', component: TalkComponent},
-  {path: 'add', component: AddTalkComponent},
+  {path: '', loadChildren: 'app/talks/talks.module#TalksModule'},
+  {path: 'talk/:id', loadChildren: 'app/talks/talks.module#TalksModule'},
   {path: 'add', loadChildren: 'app/add-talk/add-talk.module#AddTalkModule', canActivate: [CanActivateGuard]},
 ];
 
@@ -26,12 +21,11 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     HttpModule,
-    TalksModule,
-    AddTalkModule,
     SharedModule,
     CoreModule,
     RouterModule.forRoot(routes)
   ],
+  providers: [CanActivateGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {
