@@ -3,10 +3,10 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { TalksService } from './talks.service';
 import { TalksModule } from './talks/talks.module';
 import { AddTalkModule } from './add-talk/add-talk.module';
 import { SharedModule } from './shared/shared.module';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
@@ -17,9 +17,9 @@ import { SharedModule } from './shared/shared.module';
     HttpModule,
     TalksModule,
     AddTalkModule,
-    SharedModule
+    SharedModule,
+    CoreModule
   ],
-  providers: [TalksService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
