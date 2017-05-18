@@ -22,7 +22,7 @@ export class TalkComponent implements OnInit {
 
   ngOnInit() {
     if (!this.talk) {
-      this.route.params.switchMap(id => this.talkService.getTalk(id)).subscribe(x => this.talk = x);
+      this.route.params.switchMap(id => this.talkService.getTalk(id.id)).subscribe(x => this.talk = x);
     }
   }
 

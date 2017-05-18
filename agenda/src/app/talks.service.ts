@@ -14,7 +14,7 @@ export class TalksService {
     const params = new URLSearchParams();
     params.set('search',
       JSON.stringify({
-        '*': {'operator': 'fuzzy', 'value': {'query': filter}}
+        '*': {'operator': 'fuzzy', 'value': {'query': filter !== '' ? filter : null}}
       }));
 
     return this.http.get(API_URL, {params: params})
