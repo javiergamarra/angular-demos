@@ -7,6 +7,14 @@ import { TalksModule } from './talks/talks.module';
 import { AddTalkModule } from './add-talk/add-talk.module';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
+import { RouterModule, Routes } from '@angular/router';
+import { TalksComponent } from './talks/talks.component';
+import { AddTalkComponent } from './add-talk/add-talk.component';
+
+const routes: Routes = [
+  {path: '', component: TalksComponent},
+  {path: 'add', component: AddTalkComponent},
+];
 
 @NgModule({
   declarations: [
@@ -18,7 +26,8 @@ import { CoreModule } from './core/core.module';
     TalksModule,
     AddTalkModule,
     SharedModule,
-    CoreModule
+    CoreModule,
+    RouterModule.forRoot(routes)
   ],
   bootstrap: [AppComponent]
 })
