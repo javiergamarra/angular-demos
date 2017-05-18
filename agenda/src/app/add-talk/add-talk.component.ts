@@ -8,7 +8,11 @@ import { FormBuilder, FormControl, Validators } from '@angular/forms';
 
       <input type="text" name="title" required [formControl]="nameControl" minlength="10">
 
-      <div *ngIf="!nameControl.valid && nameControl.touched">Name is invalid</div>
+      <div *ngIf="!nameControl.valid && nameControl.touched">Name is invalid
+
+
+        {{nameControl.errors | json}}
+      </div>
 
       <input type="text" name="date" required [formControl]="form.controls.date">
 
@@ -27,7 +31,7 @@ export class AddTalkComponent implements OnInit {
 
   constructor(private fb: FormBuilder) {
 
-    this.nameControl = new FormControl('', Validators.required);
+    this.nameControl = new FormControl('', [Validators.required, this.myValidator]);
 
     this.form = fb.group({
       title: this.nameControl,
@@ -42,4 +46,9 @@ export class AddTalkComponent implements OnInit {
     console.log(this.form);
   }
 
+  myValidator(ngControl: FormControl) {
+    if (ngControl.value === 'nhpatt') {
+      return {invalid: 'always'};
+    }
+  }
 }
