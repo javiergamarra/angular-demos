@@ -1,7 +1,15 @@
 <h1>
 
-  <a routerLink="">Talks</a>
-  <a routerLink="add">Add</a>
+  <style>
+    .active {
+      color: red;
+    }
+
+  </style>
+
+  <a routerLink="" routerLinkActive="active">Talks</a>
+  <a routerLink="talk/1" routerLinkActive="active">Talk 1</a>
+  <a routerLink="add" routerLinkActive="active">Add</a>
 
   <router-outlet></router-outlet>
 </h1>

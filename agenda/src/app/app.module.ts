@@ -10,9 +10,11 @@ import { CoreModule } from './core/core.module';
 import { RouterModule, Routes } from '@angular/router';
 import { TalksComponent } from './talks/talks.component';
 import { AddTalkComponent } from './add-talk/add-talk.component';
+import { TalkComponent } from './talk/talk.component';
 
 const routes: Routes = [
   {path: '', component: TalksComponent},
+  {path: 'talk/:id', component: TalkComponent},
   {path: 'add', component: AddTalkComponent},
 ];
 

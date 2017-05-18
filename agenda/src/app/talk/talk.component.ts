@@ -1,9 +1,11 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { TalkType } from './talk-type';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-talk',
-  template: `{{talk.time | date}} <span [style.color]="color(talk.type)" *ngIf="talk.time">|</span> {{talk.title}} <span
+  template: `{{(talk?.time) | date}} <span [style.color]="color(talk?.type)" *ngIf="talk?.time">|</span> {{talk?.title}}
+  <span
     (click)="favorite()">♥</span>`,
   styleUrls: ['./talk.component.css']
 })
@@ -13,15 +15,15 @@ export class TalkComponent implements OnInit {
 
   @Output() event = new EventEmitter();
 
-
-  constructor() {
+  constructor(private route: ActivatedRoute) {
+    this.route.params.subscribe(x => console.log(x));
   }
 
   ngOnInit() {
   }
 
   color() {
-    return this.talk.type === TalkType.TALK ? 'red' : 'yellow';
+    return this.talk && this.talk.type === TalkType.TALK ? 'red' : 'yellow';
   }
 
   favorite() {
