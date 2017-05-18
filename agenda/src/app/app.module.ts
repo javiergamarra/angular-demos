@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { TalksComponent } from './talks/talks.component';
 import { TalkComponent } from './talk/talk.component';
 import { TalksService } from './talks.service';
+import { AddTalkComponent } from './add-talk/add-talk.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TalksComponent,
-    TalkComponent
+    TalkComponent,
+    AddTalkComponent
   ],
   imports: [
     BrowserModule,
