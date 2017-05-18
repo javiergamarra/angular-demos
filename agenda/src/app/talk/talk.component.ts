@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { TalkType } from './talk-type';
 import { ActivatedRoute } from '@angular/router';
+import { TalksService } from '../talks.service';
 
 @Component({
   selector: 'app-talk',
@@ -15,11 +16,14 @@ export class TalkComponent implements OnInit {
 
   @Output() event = new EventEmitter();
 
-  constructor(private route: ActivatedRoute) {
-    this.route.params.subscribe(x => console.log(x));
+  constructor(private route: ActivatedRoute, private talkService: TalksService) {
+
   }
 
   ngOnInit() {
+    if (!this.talk) {
+      this.route.params.switchMap(id => this.talkService.getTalk(id)).subscribe(x => this.talk = x);
+    }
   }
 
   color() {

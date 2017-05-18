@@ -17,9 +17,14 @@ export class TalksService {
         '*': {'operator': 'fuzzy', 'value': {'query': filter}}
       }));
 
-    return this.http.get('http://data.agenda.wedeploy.io/talks', {params: params})
+    return this.http.get(API_URL, {params: params})
       .map(res => res.json())
       .map(res => res.documents);
+  }
+
+  getTalk(id) {
+    return this.http.get(`${API_URL}/${id}`)
+      .map(res => res.json());
   }
 
   saveTalk(talk) {
