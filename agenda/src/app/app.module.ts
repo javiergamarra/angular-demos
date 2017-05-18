@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { TalksService } from './talks.service';
 import { TalksModule } from './talks/talks.module';
+import { AddTalkModule } from './add-talk/add-talk.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { TalksModule } from './talks/talks.module';
   imports: [
     BrowserModule,
     HttpModule,
-    TalksModule
+    TalksModule,
+    AddTalkModule
   ],
   providers: [TalksService],
   bootstrap: [AppComponent]
